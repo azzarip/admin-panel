@@ -1,4 +1,4 @@
-@props(['title' => ucwords(str_replace('-', ' ', request()->path())) ?? 'Dashboard'])
+@props(['title' => request()->path() == '/' ? 'Dashboard' : ucwords(str_replace('-', ' ', request()->path()))])
 
 <x-admin-panel::layouts.app>
     <x-slot name="header">
