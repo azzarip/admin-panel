@@ -13,12 +13,11 @@ Route::domain('admin.' . env('DOMAIN_BASE'))->middleware([
         Auth::loginUsingId(1);
         return view('admin-panel::main');
     })->name('admin.dashboard');
-    // Route::get('/{panel}', function (string $panel) {
-    //     try {
-
-    //         return view('admin-panel.' . $panel);
-    //     } catch(\Exception $e) {
-    //         abort(404);
-    //     }
-    // } );
+    Route::get('/{panel}', function (string $panel) {
+        try {
+            return view('admin-panel::' . $panel);
+        } catch(\Exception $e) {
+            abort(404);
+        }
+    } );
 });
