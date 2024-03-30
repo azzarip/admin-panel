@@ -2,11 +2,17 @@
 
 namespace Azzarip\AdminPanel;
 
+use Laravel\Fortify\Fortify;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class AdminPanelServiceProvider extends PackageServiceProvider
 {
+    public function registeringPackage(): void
+    {
+        Fortify::loginView(fn () => view('admin-panel::login'));
+    }
+
     public function configurePackage(Package $package): void
     {
         /*

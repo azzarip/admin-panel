@@ -1,8 +1,8 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+<x-admin-panel::guest-layout>
+    <x-admin-panel::authentication-card>
+        <x-admin-panel::slot name="logo">
+            <x-admin-panel::authentication-card-logo />
+        </x-admin-panel::slot>
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
             {{ __('Before continuing, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
@@ -19,9 +19,9 @@
                 @csrf
 
                 <div>
-                    <x-button type="submit">
+                    <x-admin-panel::button type="submit">
                         {{ __('Resend Verification Email') }}
-                    </x-button>
+                    </x-admin-panel::button>
                 </div>
             </form>
 
@@ -41,5 +41,5 @@
                 </form>
             </div>
         </div>
-    </x-authentication-card>
-</x-guest-layout>
+    </x-admin-panel::authentication-card>
+</x-admin-panel::guest-layout>
