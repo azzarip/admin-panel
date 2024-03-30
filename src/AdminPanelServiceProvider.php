@@ -2,10 +2,10 @@
 
 namespace Azzarip\AdminPanel;
 
-use Livewire\Livewire;
+use Azzarip\AdminPanel\Commands\InstallCommand;
+use Azzarip\AdminPanel\Commands\MakePanelCommand;
 use Laravel\Fortify\Fortify;
 use Spatie\LaravelPackageTools\Package;
-use Laravel\Jetstream\Http\Livewire\NavigationMenu;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class AdminPanelServiceProvider extends PackageServiceProvider
@@ -17,15 +17,10 @@ class AdminPanelServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
             ->name('admin-panel')
-            ->hasConfigFile()
             ->hasRoute('web')
+            ->hasCommands([MakePanelCommand::class, InstallCommand::class])
             ->hasViews();
         }
 }

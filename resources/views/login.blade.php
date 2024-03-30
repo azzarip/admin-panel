@@ -4,7 +4,7 @@
             <x-logo-vertical />
         </x-slot>
 
-         {{-- <x-admin-panel::validation-errors class="mb-4" /> --}}
+         <x-admin-panel::validation-errors class="mb-4" />
         @session('status')
             <div class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">
                 {{ $value }}
