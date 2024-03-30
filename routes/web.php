@@ -1,19 +1,24 @@
 <?php
 
-use Azzarip\AdminPanel\Http\Middleware\AuthenticateSession;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Azzarip\AdminPanel\Http\Middleware\AuthenticateSession;
 
 Route::domain('admin.' . env('DOMAIN_BASE'))->middleware([
-    'web', 'auth:sanctum', AuthenticateSession::class,
+   'web', AuthenticateSession::class,
 ])
 ->group(function () {
-    Route::view('/', 'admin-panel::dashboard')->name('admin.dashboard');
-    Route::get('/{panel}', function (string $panel) {
-        try {
+    Route::get('/', function() {
+        Auth::loginUsingId(1);
+        return view('admin-panel::main');
+    })->name('admin.dashboard');
+    // Route::get('/{panel}', function (string $panel) {
+    //     try {
 
-            return view('admin-panel.' . $panel);
-        } catch(\Exception $e) {
-            abort(404);
-        }
-    } );
+    //         return view('admin-panel.' . $panel);
+    //     } catch(\Exception $e) {
+    //         abort(404);
+    //     }
+    // } );
 });
