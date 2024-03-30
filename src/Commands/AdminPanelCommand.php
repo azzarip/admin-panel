@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Azzarip\AdminPanel\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class AdminPanelCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'admin-panel';
 
     public $description = 'My command';
 
