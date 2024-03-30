@@ -16,5 +16,5 @@ Route::domain('admin.' . env('DOMAIN_BASE'))->middleware([
         } catch(\Exception $e) {
             abort(404);
         }
-    } );
+    })->name('admin');
 });

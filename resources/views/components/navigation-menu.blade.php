@@ -1,3 +1,8 @@
+<?php
+use Azzarip\AdminPanel\AdminPanel;
+$items = AdminPanel::items();
+?>
+
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,6 +20,11 @@
                     <x-admin-panel::nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-admin-panel::nav-link>
+                @foreach ($items as $route => $label)
+                    <x-admin-panel::nav-link href="{{ route('admin', ['panel' => $route]) }}" :active="request()->path() == $route">
+                        {{ $label }}
+                    </x-admin-panel::nav-link>
+                @endforeach
                 </div>
             </div>
 
