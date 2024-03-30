@@ -23,8 +23,8 @@ class InstallCommand extends Command
             File::makeDirectory($destination, 0755, true, true);
         }
 
-        Artisan::call('make:admin-panel dashboard');
-        $this->info("Panel Dashboard created successfully.");
+        Artisan::call('make:admin-panel main');
+        $this->info("Panel Main created successfully.");
 
         return self::SUCCESS;
     }
