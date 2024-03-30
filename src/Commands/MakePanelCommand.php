@@ -19,7 +19,7 @@ class MakePanelCommand extends Command
             $this->error('Panel Name cannot be empty.');
             return self::INVALID;
         }
-        $sourcePath = base_path("vendor/azzarip/admin-panel/stubs/dashboard.blade.php");
+        $sourcePath = __DIR__ . '/../../stubs/dashboard.blade.php';
         $destinationPath = resource_path("views/vendor/admin-panel/{$input}.blade.php");
 
         if (File::exists($destinationPath)) {

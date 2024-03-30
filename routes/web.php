@@ -9,10 +9,7 @@ Route::domain('admin.' . env('DOMAIN_BASE'))->middleware([
    'web', AuthenticateSession::class,
 ])
 ->group(function () {
-    Route::get('/', function() {
-        Auth::loginUsingId(1);
-        return view('admin-panel::main');
-    })->name('admin.dashboard');
+    Route::view('/', 'admin-panel::main')->name('admin.dashboard');
     Route::get('/{panel}', function (string $panel) {
         try {
             return view('admin-panel::' . $panel);

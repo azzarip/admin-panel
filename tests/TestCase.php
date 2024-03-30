@@ -2,13 +2,11 @@
 
 namespace Azzarip\AdminPanel\Tests;
 
-use Livewire\Livewire;
+use Illuminate\Support\Facades\Artisan;
 use Azzarip\AdminPanel\Tests\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Azzarip\AdminPanel\AdminPanelServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Laravel\Jetstream\Http\Livewire\NavigationMenu;
 
 class TestCase extends Orchestra
 {
@@ -21,9 +19,8 @@ class TestCase extends Orchestra
 
         $this->actingAs($this->user);
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Azzarip\\AdminPanel\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        Artisan::call('admin-panel:install');
+        $this->withoutVite();
     }
 
     protected function getPackageProviders($app)
@@ -36,11 +33,7 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_admin-panel_table.php.stub';
-        $migration->up();
-        */
-    }
+   }
 
     protected function setUpDatabase($app)
     {
