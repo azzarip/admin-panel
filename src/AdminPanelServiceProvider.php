@@ -18,8 +18,7 @@ class AdminPanelServiceProvider extends PackageServiceProvider
         $package
             ->name('admin-panel')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_admin-panel_table')
-            ->hasCommand(AdminPanelCommand::class);
-    }
+            ->hasRoute('web')
+            ->hasViews();
+        }
 }
