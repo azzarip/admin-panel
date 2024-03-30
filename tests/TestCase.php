@@ -2,11 +2,13 @@
 
 namespace Azzarip\AdminPanel\Tests;
 
+use Livewire\Livewire;
 use Azzarip\AdminPanel\Tests\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Azzarip\AdminPanel\AdminPanelServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Laravel\Jetstream\Http\Livewire\NavigationMenu;
 
 class TestCase extends Orchestra
 {

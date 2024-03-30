@@ -7,5 +7,5 @@ Route::domain('admin.' . env('DOMAIN_BASE'))->middleware([
     'web', 'auth:sanctum', AuthenticateSession::class,
 ])
 ->group(function () {
-    Route::view('/', 'dashboard')->name('dashboard');
+    Route::view('/', 'admin-panel::dashboard')->name('admin.dashboard');
 });

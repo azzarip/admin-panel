@@ -15,14 +15,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
-        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <x-admin-panel::banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @livewire('navigation-menu')
-
+            <x-admin-panel::navigation-menu />
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white dark:bg-gray-800 shadow">
@@ -39,7 +37,5 @@
         </div>
 
         @stack('modals')
-
-        @livewireScripts
     </body>
 </html>

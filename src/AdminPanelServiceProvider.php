@@ -2,8 +2,10 @@
 
 namespace Azzarip\AdminPanel;
 
+use Livewire\Livewire;
 use Laravel\Fortify\Fortify;
 use Spatie\LaravelPackageTools\Package;
+use Laravel\Jetstream\Http\Livewire\NavigationMenu;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class AdminPanelServiceProvider extends PackageServiceProvider
