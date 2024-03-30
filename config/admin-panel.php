@@ -2,7 +2,7 @@
 
 return [
 
-   'home' => [
+    'home' => [
         'label' => 'Home',
         'path' => '/',
         'items' => [

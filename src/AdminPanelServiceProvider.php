@@ -4,7 +4,6 @@ namespace Azzarip\AdminPanel;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Azzarip\AdminPanel\Commands\AdminPanelCommand;
 
 class AdminPanelServiceProvider extends PackageServiceProvider
 {
