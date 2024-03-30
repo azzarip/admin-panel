@@ -7,6 +7,7 @@ use Azzarip\AdminPanel\Tests\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Azzarip\AdminPanel\AdminPanelServiceProvider;
+use Laravel\Fortify\FortifyServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -27,13 +28,14 @@ class TestCase extends Orchestra
     {
         return [
             AdminPanelServiceProvider::class,
+            FortifyServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-   }
+}
 
     protected function setUpDatabase($app)
     {

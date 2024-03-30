@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Azzarip\AdminPanel\Http\Middleware\AuthenticateSession;
 
 Route::domain('admin.' . env('DOMAIN_BASE'))->middleware([
-   'web', AuthenticateSession::class,
+   'web', 'auth', AuthenticateSession::class,
 ])
 ->group(function () {
     Route::view('/', 'admin-panel::main')->name('admin.dashboard');
