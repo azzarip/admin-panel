@@ -98,7 +98,7 @@ $items = AdminPanel::items();
             <x-admin-panel::responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
             </x-admin-panel::responsive-nav-link>
-            @foreach ($items as $route => $label)
+        @foreach ($items as $route => $label)
             <x-admin-panel::responsive-nav-link href="{{ route('admin', ['panel' => $route]) }}" :active="request()->path() == $route">
                 {{ $label }}
             </x-admin-panel::responsive-nav-link>
